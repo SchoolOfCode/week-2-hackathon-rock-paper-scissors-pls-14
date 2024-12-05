@@ -1,6 +1,10 @@
+let playerMove = prompt("What move would you like?");
+
+
+
 const getWinner = (playerMove, computerMove) => {
     
-    if (playerMove = computerMove) {                                            //Bug #1 - (playerMove = computerMove) should've been "==="
+    if (playerMove === computerMove) {                                            //Bug #1 - (playerMove = computerMove) should've been "==="
         return 0; 
     
         } else if (playerMove === "rock" && computerMove === "scissors") {
@@ -17,5 +21,5 @@ const getWinner = (playerMove, computerMove) => {
     }
 };
 
-let result = getWinner("paper", "scissors");    
+let result = getWinner(playerMove, "scissors");    
 console.log(result)
