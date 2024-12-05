@@ -1,17 +1,21 @@
-let playerMove = "rock";
-let computerMove = "paper";
-
-    if (playerMove === computerMove) {
-    console.log("Draw!"); 
-
-    } else if (playerMove === "rock" && computerMove === "scissors") {
-        console.log("Player wins!")
-       
-    } else if (playerMove === "paper" && computerMove === "rock") {
-        console.log("Player wins!")
+const getWinner = (playerMove, computerMove) => {
     
-    } else if (playerMove === "scissors" && computerMove === "paper") {
-        console.log("Player wins!");
+    if (playerMove = computerMove) {                                            //Bug #1 - (playerMove = computerMove) should've been "==="
+        return 0; 
+    
+        } else if (playerMove === "rock" && computerMove === "scissors") {
+            return 1;
+           
+        } else if (playerMove === "paper" && computerMove === "rock") {
+            return 1;
+        
+        } else if (playerMove === "scissors" && computerMove === "paper") {
+            return 1;
+    
+        } else {
+            return -1;
+    }
+};
 
-    } else {console.log("Computer wins!");}
-   
+let result = getWinner("paper", "scissors");    
+console.log(result)
