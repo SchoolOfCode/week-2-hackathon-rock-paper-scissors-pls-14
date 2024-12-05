@@ -1,7 +1,5 @@
 let playerMove = prompt("What move would you like?");
 
-
-
 const getWinner = (playerMove, computerMove) => {
     
     if (playerMove === computerMove) {                                            //Bug #1 - (playerMove = computerMove) should've been "==="
