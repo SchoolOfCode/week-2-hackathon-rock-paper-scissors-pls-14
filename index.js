@@ -1,23 +1,40 @@
+// Player choice
 let playerMove = prompt("What move would you like?");
+// Function to randomly generate Computer's choice
+let computerMove = () => {
+    
+    let randomNumber = Math.floor(Math.random() * 2)
+    
+    if (randomNumber == 0) {
+        return "rock";
 
-const getWinner = (playerMove, computerMove) => {
-    
-    if (playerMove === computerMove) {                                            //Bug #1 - (playerMove = computerMove) should've been "==="
-        return 0; 
-    
-        } else if (playerMove === "rock" && computerMove === "scissors") {
-            return 1;
-           
-        } else if (playerMove === "paper" && computerMove === "rock") {
-            return 1;
-        
-        } else if (playerMove === "scissors" && computerMove === "paper") {
-            return 1;
-    
-        } else {
-            return -1;
+    } else if (randomNumber == 1) {
+        return "scissors";
+
+    } else {
+        return "paper";
     }
 };
+// Function to decide who the winner is
+const getWinner = (playerMove, computerMove) => {
+    
+    if (playerMove === computerMove) {                                            //Bug #1 - (playerMove = computerMove) should've been "===".
+        return 0; 
+    
+    } else if (playerMove === "rock" && computerMove === "scissors") {
+        return 1;
+    
+    } else if (playerMove === "paper" && computerMove === "rock") {
+        return 1;
+        
+    } else if (playerMove === "scissors" && computerMove === "paper") {
+        return 1;
+    
+    } else {
+        return -1;
+    }
+};
+// Variable to show game results
+let result = getWinner(playerMove, computerMove());
 
-let result = getWinner(playerMove, "scissors");    
-console.log(result)
+alert(`The computer chose ${computerMove()}!`)
