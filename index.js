@@ -1,4 +1,3 @@
-
 let playAgain = true
 
 while (playAgain == true) {
@@ -52,7 +51,7 @@ while (playAgain == true) {
     alert(`Game over!`);
     }
 
-};                                                                                  
+};                                                                   //Bug #4 - variables we're scope locked from while loop ending on line 22.                                                      
 
 
 
