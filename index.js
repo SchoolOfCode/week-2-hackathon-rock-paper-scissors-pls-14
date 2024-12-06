@@ -22,7 +22,7 @@ while (playAgain == true) {
     };
 
     // Computer's move
-    let computerChoice = computerMove();
+    let computerChoice = computerMove(); // Bug #5 - causing issues with missing ()'s
 
     // Function to decide who the winner is
     const getWinner = (playerMove, computerMove) => {
