@@ -1,5 +1,5 @@
 // Player choice
-let playerMove = prompt("What move would you like?");
+let playerMove = (prompt("What move would you like?")).toLowerCase();       //Bug #3 - Had player lose if choice was input with capital letter.
 // Function to randomly generate Computer's choice
 let computerMove = () => {
     
