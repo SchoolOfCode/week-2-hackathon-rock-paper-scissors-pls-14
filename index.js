@@ -1,60 +1,56 @@
-let playAgain = true
+let playAgain = true;
 
-let game = 0
-let wins = 0
-let draws = 0
-let losses = 0
+let game = 0;
+let wins = 0;
+let draws = 0;
+let losses = 0;
 
 while (playAgain == true) {
-// Player choice
-    let playerMove = (prompt("What move would you like?")).toLowerCase();   //Bug #3 - Had player lose if choice was input with capital letter.
-// Function to randomly generate Computer's choice
+    // Player choice
+    let playerMove = (prompt("What move would you like?")).toLowerCase(); // Bug #3 - case sensitive input
+
+    // Function to randomly generate Computer's choice
     let computerMove = () => {
-    
-        let randomNumber = Math.floor(Math.random() * 3)                           // Bug #2 - Math.floor(Math.random() * 2    - should be * 3.
-    
+        let randomNumber = Math.floor(Math.random() * 3); // Bug #2 - ensuriung output was 0, 1, 2
         if (randomNumber === 0) {
             return "rock";
-
         } else if (randomNumber === 1) {
             return "scissors";
-
         } else {
             return "paper";
         }
     };
- 
-// Function to decide who the winner is
+
+    // Computer's move
+    let computerChoice = computerMove();
+
+    // Function to decide who the winner is
     const getWinner = (playerMove, computerMove) => {
-        
-        if (playerMove === computerMove) {                                              // Bug #1: Using === for comparison
+        if (playerMove === computerMove) {
             return 0;  
-
         } else if (playerMove === "rock" && computerMove === "scissors") {
-            return 1;
-
+            return 1;  
         } else if (playerMove === "paper" && computerMove === "rock") {
-            return 1;
-
+            return 1;  
         } else if (playerMove === "scissors" && computerMove === "paper") {
-            return 1;
-
+            return 1;  
         } else {
-            return 2; 
+            return 2;  
         }
     };
 
-// Variable to show game results
-    let result = getWinner(playerMove, computerMove());
+    // Get the winner
+    let result = getWinner(playerMove, computerChoice);
 
-    alert(`The computer chose ${computerMove()}!`)
+    // Show the result
+    alert(`The computer chose ${computerChoice}!`);
 
-// Function to add results to totals    
+    // Update the scores
     const updateScores = () => {
         if (result === 1) {
-            losses++;
-        } else if (result === 2) {
             wins++;
+        } else if (result === 2) {
+            losses++;
         } else {
             draws++;
         }
@@ -62,17 +58,17 @@ while (playAgain == true) {
     };
 
     updateScores();
-// Displays scoreboard
-    alert(`Game number: ${game}, Wins: ${wins}, Draws: ${draws}, Losses: ${losses}`)
 
-// Ask if player wants to continue    
+    // Displays the scoreboard
+    alert(`Game number: ${game}, Wins: ${wins}, Draws: ${draws}, Losses: ${losses}`);
+
+    // Ask if player wants to continue    
     playAgain = confirm("Do you want to play again?");
 
     if (!playAgain) {
-    alert(`Game over!`);
+        alert(`Game over!`);
     };
-
-};                                                                   //Bug #4 - variables we're scope locked from while loop ending on line 22.                                                      
+};                                                     //Bug #4 - variables we're scope locked from while loop ending on line 22.                                                      
 
 
 
