@@ -11,13 +11,18 @@ while (playAgain == true) {
 
     // Function to randomly generate Computer's choice
     let computerMove = () => {
+        
         let randomNumber = Math.floor(Math.random() * 3); // Bug #2 - ensuriung output was 0, 1, 2
+        
         if (randomNumber === 0) {
             return "rock";
+
         } else if (randomNumber === 1) {
             return "scissors";
+
         } else {
             return "paper";
+
         }
     };
 
@@ -26,16 +31,22 @@ while (playAgain == true) {
 
     // Function to decide who the winner is
     const getWinner = (playerMove, computerMove) => {
+        
         if (playerMove === computerMove) {
-            return 0;  
+            return 0;
+
         } else if (playerMove === "rock" && computerMove === "scissors") {
-            return 1;  
+            return 1;
+
         } else if (playerMove === "paper" && computerMove === "rock") {
-            return 1;  
+            return 1;
+
         } else if (playerMove === "scissors" && computerMove === "paper") {
-            return 1;  
+            return 1;
+
         } else {
-            return 2;  
+            return 2;
+
         }
     };
 
@@ -47,12 +58,16 @@ while (playAgain == true) {
 
     // Update the scores
     const updateScores = () => {
+        
         if (result === 1) {
             wins++;
+
         } else if (result === 2) {
             losses++;
+
         } else {
             draws++;
+
         }
         game++;
     };
@@ -68,11 +83,7 @@ while (playAgain == true) {
     if (!playAgain) {
         alert(`Game over!`);
     };
-};                                                     //Bug #4 - variables we're scope locked from while loop ending on line 22.                                                      
-
-
-
-
+};                            //Bug #4 - variables we're scope locked from while loop ending on line 22.                                                      
 
 
 
