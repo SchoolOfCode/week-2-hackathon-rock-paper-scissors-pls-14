@@ -3,7 +3,7 @@ let playerMove = prompt("What move would you like?");
 // Function to randomly generate Computer's choice
 let computerMove = () => {
     
-    let randomNumber = Math.floor(Math.random() * 2)
+    let randomNumber = Math.floor(Math.random() * 3)                           // Bug #2 - Math.floor(Math.random() * 2       - should be * 3.
     
     if (randomNumber == 0) {
         return "rock";
@@ -36,5 +36,5 @@ const getWinner = (playerMove, computerMove) => {
 };
 // Variable to show game results
 let result = getWinner(playerMove, computerMove());
-
+console.log(result)
 alert(`The computer chose ${computerMove()}!`)
